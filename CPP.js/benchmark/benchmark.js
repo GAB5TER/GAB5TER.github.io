@@ -63,8 +63,8 @@ testCases.forEach(function(test) {
   select.forEach(function(id) {
     var scen = scens[id];
     var result = benchmark({
-      header: 'AStarFinder',
-      finder: new PF.AStarFinder({allowDiagonal: true}),
+      header: 'WavefrontDistanceTransform',
+      finder: new PF.WavefrontDistanceTransform({allowDiagonal: true}),
       grid: grid,
       startX: scen.startX,
       startY: scen.startY,

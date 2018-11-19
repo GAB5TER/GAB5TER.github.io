@@ -28,7 +28,8 @@ gulp.task('uglify', ['browserify'], function(cb) {
     return gulp.src('./lib/pathfinding-browserified.js')
     .pipe(uglify())
     .pipe(rename('pathfinding-browser.min.js'))
-    .pipe(gulp.dest('./lib/'), cb);
+    .pipe(gulp.dest('./lib/'), cb)
+    .pipe(gulp.dest('./visual/lib/'), cb);
 });
 
 gulp.task('scripts', ['clean', 'browserify', 'uglify'], function(cb) {
@@ -43,7 +44,7 @@ gulp.task('compile', ['scripts'], function() {
 
 gulp.task('test', function () {
     return gulp.src('./test/**/*.js', {read: false})
-        .pipe(mocha({reporter: 'spec', bail: true, globals: { should: require('should') }}));
+        .pipe(mocha({reporter: 'spec', bail: true, timeout: 99999999, globals: { should: require('should') }}));
 });
 
 gulp.task('bench', function() {
