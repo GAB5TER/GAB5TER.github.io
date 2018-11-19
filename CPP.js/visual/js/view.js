@@ -22,11 +22,23 @@ var View = {
             'stroke-opacity': 0.2,
         },
         opened: {
-            fill: '#98fb98',
+            fill: '#000000',
             'stroke-opacity': 0.2,
         },
         closed: {
             fill: '#afeeee',
+            'stroke-opacity': 0.2,
+        },
+        visited: {
+            fill: '#afeeee',
+            'stroke-opacity': 0.2,
+        },
+        visited2: {
+            fill: '#57dbdb',
+            'stroke-opacity': 0.2,
+        },
+        visited3: {
+            fill: '#1f9393',
             'stroke-opacity': 0.2,
         },
         failed: {
@@ -50,7 +62,7 @@ var View = {
         stroke: 'yellow',
         'stroke-width': 3,
     },
-    supportedOperations: ['opened', 'closed', 'tested'],
+    supportedOperations: ['opened', 'closed', 'visited', 'visited2', 'visited3', 'tested'],
     init: function(opts) {
         this.numCols      = opts.numCols;
         this.numRows      = opts.numRows;
@@ -159,6 +171,18 @@ var View = {
             break;
         case 'closed':
             this.colorizeNode(this.rects[gridY][gridX], nodeStyle.closed.fill);
+            this.setCoordDirty(gridX, gridY, true);
+            break;
+        case 'visited':
+            this.colorizeNode(this.rects[gridY][gridX], nodeStyle.visited.fill);
+            this.setCoordDirty(gridX, gridY, true);
+            break;
+        case 'visited2':
+            this.colorizeNode(this.rects[gridY][gridX], nodeStyle.visited2.fill);
+            this.setCoordDirty(gridX, gridY, true);
+            break;
+        case 'visited3':
+            this.colorizeNode(this.rects[gridY][gridX], nodeStyle.visited3.fill);
             this.setCoordDirty(gridX, gridY, true);
             break;
         case 'tested':

@@ -320,6 +320,42 @@ $.extend(Controller, {
                     value: v
                 });
             },
+            get visited() {
+                return this._visited;
+            },
+            set visited(v) {
+                this._visited = v;
+                Controller.operations.push({
+                    x: this.x,
+                    y: this.y,
+                    attr: 'visited',
+                    value: v
+                });
+            },
+            get visited2() {
+                return this._visited2;
+            },
+            set visited2(v) {
+                this._visited2 = v;
+                Controller.operations.push({
+                    x: this.x,
+                    y: this.y,
+                    attr: 'visited2',
+                    value: v
+                });
+            },
+            get visited3() {
+                return this._visited3;
+            },
+            set visited3(v) {
+                this._visited3 = v;
+                Controller.operations.push({
+                    x: this.x,
+                    y: this.y,
+                    attr: 'visited3',
+                    value: v
+                });
+            },
             get tested() {
                 return this._tested;
             },
