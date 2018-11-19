@@ -56,57 +56,8 @@ function pathTests(tests) {
     }
 }
 
-
-// finders guaranteed to find the shortest path
 pathTests({
-    name: 'AStar',
-    finder: new PF.AStarFinder(),
-    optimal: true
-}, {
-    name: 'BreadthFirst',
-    finder: new PF.BreadthFirstFinder(),
-    optimal: true
-}, {
-    name: 'Dijkstra',
-    finder: new PF.DijkstraFinder(),
-    optimal: true
-}, {
-    name: 'BiBreadthFirst',
-    finder: new PF.BiBreadthFirstFinder(),
-    optimal: true
-}, {
-    name: 'BiDijkstra',
-    finder: new PF.BiDijkstraFinder(),
-    optimal: true
-});
-
-// finders NOT guaranteed to find the shortest path
-pathTests({
-    name: 'BiAStar',
-    finder: new PF.BiAStarFinder(),
-    optimal: false
-}, {
-    name: 'BestFirst',
-    finder: new PF.BestFirstFinder(),
-    optimal: false
-}, {
-    name: 'BiBestFirst',
-    finder: new PF.BiBestFirstFinder(),
-    optimal: false
-}, {
-    name: 'IDAStar',
-    finder: new PF.IDAStarFinder(),
-    optimal: false
-}, {
-    name: 'JPFMoveDiagonallyIfAtMostOneObstacle',
-    finder: new PF.JumpPointFinder({
-      diagonalMovement: PF.DiagonalMovement.IfAtMostOneObstacle
-    }),
-    optimal: false
-},  {
-    name: 'JPFNeverMoveDiagonally',
-    finder: new PF.JumpPointFinder({
-      diagonalMovement: PF.DiagonalMovement.Never
-    }),
+    name: 'WavefrontDistanceTransform',
+    finder: new PF.WavefrontDistanceTransform(),
     optimal: false
 });
