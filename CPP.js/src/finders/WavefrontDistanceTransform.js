@@ -95,6 +95,11 @@ WavefrontDistanceTransform.prototype.findPath = function(startX, startY, endX, e
     // for debugging, print the grid
     gridPrettyPrint(grid);
 
+    // check if the start node is reachable from end node
+    if (!startNode.distance) {
+        return;
+    }
+
     // with the distances calculated,
     // we can proceed with the coverage algorithm
 
